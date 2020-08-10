@@ -10,7 +10,7 @@
 .display-bar{
     /* display:flex; */
     /* flex-direction: column; */
-    background-color: aqua;
+    background-color: rgb(88, 245, 68);
     width: 5px;
     margin: 2px;
     display: inline-block;
