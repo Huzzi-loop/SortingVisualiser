@@ -21,7 +21,14 @@ class SortingVisualiser extends Component {
     this.setState({array});
     }
 
+    sortingArr(){
+        this.setState({
+            array:this.state.array.sort((a,b)=>a-b)
+        })
+    }
+
     render() {
+        // this.sortingArr()
         return (
             <div className="container">
                 {this.state.array.map((value,i)=>(

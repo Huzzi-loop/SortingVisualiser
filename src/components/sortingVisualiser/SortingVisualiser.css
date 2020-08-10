@@ -1,15 +1,17 @@
 .container{
     /* justify-content: center; */
-    display: inline-flex;
+    /* display: inline-flex; */
     /* width: max-content; */
-
+    position: absolute;
+    left: 0px;
+    right:0px;
 }
 
 .display-bar{
     /* display:flex; */
-    flex-direction: column;
+    /* flex-direction: column; */
     background-color: aqua;
     width: 5px;
     margin: 2px;
-    display: inline;
+    display: inline-block;
 }
