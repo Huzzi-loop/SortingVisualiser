@@ -1,0 +1,15 @@
+.container{
+    /* justify-content: center; */
+    display: inline-flex;
+    /* width: max-content; */
+
+}
+
+.display-bar{
+    /* display:flex; */
+    flex-direction: column;
+    background-color: aqua;
+    width: 5px;
+    margin: 2px;
+    display: inline;
+}
