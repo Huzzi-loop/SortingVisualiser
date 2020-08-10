@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import './SortingVisualiser.css';
+import {getMergeSortAnimations} from '../sortingAlgo/MergeSort.js';
+
+const ANIMATION_SPEED_MS = 10;
+// Change this value for the number of bars (value) in the array.
+const PRIMARY_COLOR = 'rgb(247, 77, 92)';
+// This is the color of array bars that are being compared throughout the animations.
+const SECONDARY_COLOR = 'black';
+
 
 class SortingVisualiser extends Component {
     constructor(props){
@@ -27,15 +35,45 @@ class SortingVisualiser extends Component {
         })
     }
 
+    mergeSort(){
+        const animations = getMergeSortAnimations(this.state.array);
+        for (let i = 0; i < animations.length; i++) {
+            const arrayBars = document.getElementsByClassName('display-bar');
+            const isColorChange = i % 3 !== 2;
+            if (isColorChange) {
+                const [barOneIdx, barTwoIdx] = animations[i];
+                const barOneStyle = arrayBars[barOneIdx].style;
+                const barTwoStyle = arrayBars[barTwoIdx].style;
+                const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+                setTimeout(() => {
+                barOneStyle.backgroundColor = color;
+                barTwoStyle.backgroundColor = color;
+                }, i * ANIMATION_SPEED_MS);
+            } else {
+                setTimeout(() => {
+                const [barOneIdx, newHeight] = animations[i];
+                const barOneStyle = arrayBars[barOneIdx].style;
+                barOneStyle.height = `${newHeight}px`;
+                }, i * ANIMATION_SPEED_MS);
+            }
+        }
+    }
+
     render() {
         // this.sortingArr()
         return (
-            <div className="container">
-                {this.state.array.map((value,i)=>(
-                    <div key={i} className="display-bar" style={{height:`${value}px`}}>
-                    </div>
-                ))}
-            </div>
+            <>
+                <div>
+                    <button onClick={()=>this.mergeSort()}>Merge Sort</button>
+                    <button onClick={()=>this.resetArr()}>Reset Array</button>
+                </div>
+                <div className="container">
+                    {this.state.array.map((value,i)=>(
+                        <div key={i} className="display-bar" style={{height:`${value}px`}}>
+                        </div>
+                    ))}
+                </div>
+            </>
         );
     }
 
