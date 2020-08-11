@@ -3,7 +3,7 @@ import './SortingVisualiser.css';
 import {getMergeSortAnimations} from '../sortingAlgo/MergeSort.js';
 import {getBubbleSortAnimations} from '../sortingAlgo/BubbleSort.js';
 
-const ANIMATION_SPEED_MS = 5;
+const ANIMATION_SPEED_MS = 3;
 // Change this value for the number of bars (value) in the array.
 const PRIMARY_COLOR = 'rgb(247, 77, 92)';
 // This is the color of array bars that are being compared throughout the animations.
@@ -64,12 +64,12 @@ class SortingVisualiser extends Component {
         const animations = getBubbleSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
           const arrayBars = document.getElementsByClassName('display-bar');
-          const isColorChange = i % 3 !== 2;
+          const isColorChange = i % 4 < 2;
           if (isColorChange) {
             const [barOneIdx, barTwoIdx] = animations[i];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
-            const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+            const color = i % 4 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
             setTimeout(() => {
               barOneStyle.backgroundColor = color;
               barTwoStyle.backgroundColor = color;

@@ -2,6 +2,7 @@ export function getBubbleSortAnimations(array) {
     const animations = [];
     if (array.length <= 1) return array;
     doSort(array,animations);
+    // console.log(array);
     return animations;
 };
 
@@ -13,8 +14,10 @@ function doSort(array,animations){
             animations.push([i,j]);
             if(array[i]<array[j]){
                 animations.push([i,array[i]]);
+                animations.push([j,array[j]]);
             }else{
                 animations.push([i,array[j]]);
+                animations.push([j,array[i]]);
                 swap=array[i]
                 array[i]=array[j]
                 array[j]=swap
