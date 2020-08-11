@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SortingVisualiser.css';
 import {getMergeSortAnimations} from '../sortingAlgo/MergeSort.js';
+import {getSelectionSortAnimations} from '../sortingAlgo/SelectionSort.js';
 import {getBubbleSortAnimations} from '../sortingAlgo/BubbleSort.js';
 
 const ANIMATION_SPEED_MS = 3;
@@ -60,6 +61,30 @@ class SortingVisualiser extends Component {
         }
     }
 
+    selectionSort(){
+        const animations = getSelectionSortAnimations(this.state.array);
+        for (let i = 0; i < animations.length; i++) {
+          const arrayBars = document.getElementsByClassName('display-bar');
+          const isColorChange = i % 4 < 2;
+          if (isColorChange) {
+            const [barOneIdx, barTwoIdx] = animations[i];
+            const barOneStyle = arrayBars[barOneIdx].style;
+            const barTwoStyle = arrayBars[barTwoIdx].style;
+            const color = i % 4 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+            setTimeout(() => {
+              barOneStyle.backgroundColor = color;
+              barTwoStyle.backgroundColor = color;
+            }, i * ANIMATION_SPEED_MS);
+          } else {
+            setTimeout(() => {
+              const [barOneIdx, newHeight] = animations[i];
+              const barOneStyle = arrayBars[barOneIdx].style;
+              barOneStyle.height = `${newHeight}px`;
+            }, i * ANIMATION_SPEED_MS);
+          }
+        }
+    }
+
     bubbleSort(){
         const animations = getBubbleSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++) {
@@ -90,6 +115,7 @@ class SortingVisualiser extends Component {
             <>
                 <div>
                     <button onClick={()=>this.mergeSort()}>Merge Sort</button>
+                    <button onClick={()=>this.selectionSort()}>Selection Sort</button>
                     <button onClick={()=>this.bubbleSort()}>Bubble Sort</button>
                     <button onClick={()=>this.resetArr()}>Reset Array</button>
                 </div>
