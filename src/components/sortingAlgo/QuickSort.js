@@ -26,18 +26,18 @@ function partition(array,l,h,animations){
     let j=h;
     while(i<j){
         do{
-            animations.push([l,i]);
-            animations.push([l,i]);
-            animations.push([l,pivot]);
-            animations.push([i,array[i]]);
+            // animations.push([l,i]);
+            // animations.push([l,i]);
+            // animations.push([l,pivot]);
+            // animations.push([i,array[i]]);
             i++;
         }while(array[i]<pivot);
         do{
             j--;
-            animations.push([l,j]);
-            animations.push([l,j]);
-            animations.push([l,pivot]);
-            animations.push([j,array[j]]);
+            // animations.push([l,j]);
+            // animations.push([l,j]);
+            // animations.push([l,pivot]);
+            // animations.push([j,array[j]]);
         }while(array[j]>pivot);
         if(i<j){
             swap(array,i,j,animations);
