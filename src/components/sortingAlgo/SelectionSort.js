@@ -2,7 +2,7 @@ export function getSelectionSortAnimations(array) {
     const animations = [];
     if (array.length <= 1) return array;
     doSort(array,animations);
-    // console.log(array);
+    // console.log(animations);
     return animations;
 };
 
