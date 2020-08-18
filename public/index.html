@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="index.css" type="text/css">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
@@ -25,8 +26,29 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <style>
+    button{
+      font-weight:bold;
+      padding:0;
+      text-align: center;
+      margin:0;
+      height: 50px;
+      border: black solid;
+      border-width: 4px;
+}
+button:hover{
+  background-color:black!important;
+  color:white!important;
+  position: relative!important;
+  left:4px !important;
+  top:4px !important;
+}
+    </style>
   </head>
-  <body>
+  <body style="background: #FC466B;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3F5EFB, #FC466B);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3F5EFB, #FC466B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

@@ -7,11 +7,30 @@ import {getQuickSortAnimations} from '../sortingAlgo/QuickSort.js';
 
 const ANIMATION_SPEED_MS = 3;
 // Change this value for the number of bars (value) in the array.
-const PRIMARY_COLOR = 'rgb(247, 77, 92)';
+const PRIMARY_COLOR = 'black';
 // This is the color of array bars that are being compared throughout the animations.
-const SECONDARY_COLOR = 'black';
-
-
+const SECONDARY_COLOR = 'white';
+// button styling
+const btnStyle =
+{
+  color:"black",
+  fontWeight:"10px",
+  backgroundColor:"transparent",
+padding:"10px",
+buttonBarStyle:"transparent",
+}
+const btnBorder =
+{
+  display:"flex",
+  position:"relative",
+  top:"20px",
+  left:"460px",
+  backgroundColor:"transparent",
+  height:"41px",
+  width:"600px",
+justifyContent:"space-between"
+}
+//end of styling
 class SortingVisualiser extends Component {
     constructor(props){
         super(props);
@@ -138,12 +157,12 @@ class SortingVisualiser extends Component {
         // this.sortingArr()
         return (
             <>
-                <div>
-                    <button onClick={()=>this.mergeSort()}>Merge Sort</button>
-                    <button onClick={()=>this.selectionSort()}>Selection Sort</button>
-                    <button onClick={()=>this.bubbleSort()}>Bubble Sort</button>
-                    <button onClick={()=>this.quickSort()}>Quick Sort</button>
-                    <button onClick={()=>this.resetArr()}>Reset Array</button>
+                <div style={btnBorder}>
+                     <button style={btnStyle} onClick={()=>this.mergeSort()}>Merge Sort</button>
+                    <button style={btnStyle} onClick={()=>this.selectionSort()}>Selection Sort</button>
+                    <button style={btnStyle} onClick={()=>this.bubbleSort()}>Bubble Sort</button>
+                    <button style={btnStyle} onClick={()=>this.quickSort()}>Quick Sort</button>
+                    <button style={btnStyle} onClick={()=>this.resetArr()}>Reset Array</button>
                 </div>
                 <div className="container">
                     {this.state.array.map((value,i)=>(

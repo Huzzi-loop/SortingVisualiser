@@ -11,8 +11,8 @@
 .display-bar{
     /* display:flex; */
     /* flex-direction: column; */
-    background-color: rgb(247, 77, 92);
-    width: 5px;
+    background-color: black;
+    width: 6px;
     margin: 2px;
     display: inline-block;
 }
