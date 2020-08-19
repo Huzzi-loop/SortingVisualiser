@@ -27,6 +27,8 @@
     -->
     <title>React App</title>
     <style>
+    @media(min-width:700px)
+    {
     button{
       font-weight:bold;
       padding:0;
@@ -35,6 +37,9 @@
       height: 50px;
       border: black solid;
       border-width: 4px;
+      color:"black";
+     background-color: transparent;
+    padding:0.7vw;
 }
 button:hover{
   background-color:black!important;
@@ -43,6 +48,46 @@ button:hover{
   left:4px !important;
   top:4px !important;
 }
+.n{
+  display:flex;
+  position:relative;
+  top:20px;
+  left:460px;
+  backgroundColor:transparent;
+  height:41px;
+  width:600px;
+justify-content:space-between;
+}
+}
+@media(max-width:700px)
+{
+.n{
+  display:flex;
+  position:relative;
+  margin:auto;
+  backgroundColor:transparent;
+  height:71px;
+  width:100%;
+justify-content:space-around;
+}
+button{
+  width:17vw;
+  top:6px;
+  height:35px;
+  font-size: 10px;
+  position: relative;
+  font-weight:bold;
+  padding:0;
+  text-align: center;
+  margin:0;
+  border: black solid;
+  border-width: 3.5px;
+  color:"black";
+ background-color: transparent;
+padding:0.7vw;
+}
+}
+
     </style>
   </head>
   <body style="background: #FC466B;  /* fallback for old browsers */

@@ -11,14 +11,6 @@ const PRIMARY_COLOR = 'black';
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'white';
 // button styling
-const btnStyle =
-{
-  color:"black",
-  fontWeight:"10px",
-  backgroundColor:"transparent",
-padding:"10px",
-buttonBarStyle:"transparent",
-}
 const btnBorder =
 {
   display:"flex",
@@ -157,12 +149,12 @@ class SortingVisualiser extends Component {
         // this.sortingArr()
         return (
             <>
-                <div style={btnBorder}>
-                     <button style={btnStyle} onClick={()=>this.mergeSort()}>Merge Sort</button>
-                    <button style={btnStyle} onClick={()=>this.selectionSort()}>Selection Sort</button>
-                    <button style={btnStyle} onClick={()=>this.bubbleSort()}>Bubble Sort</button>
-                    <button style={btnStyle} onClick={()=>this.quickSort()}>Quick Sort</button>
-                    <button style={btnStyle} onClick={()=>this.resetArr()}>Reset Array</button>
+                <div className="n" >
+                     <button  onClick={()=>this.mergeSort()}>Merge Sort</button>
+                    <button onClick={()=>this.selectionSort()}>Selection Sort</button>
+                    <button onClick={()=>this.bubbleSort()}>Bubble Sort</button>
+                    <button onClick={()=>this.quickSort()}>Quick Sort</button>
+                    <button  onClick={()=>this.resetArr()}>Reset Array</button>
                 </div>
                 <div className="container">
                     {this.state.array.map((value,i)=>(
